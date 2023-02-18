@@ -1,39 +1,64 @@
 package com.shoppingapp.login.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.shoppingapp.login.model.ProductData;
+import com.shoppingapp.login.service.ProductService;
 
 @RestController
 @RequestMapping("/product")
 public class ProductController {
 
-	@GetMapping("/api/v1.0/ shopping /all")
-	public void getAllProducts() {
-		
+	@Autowired
+	ProductService productService;
+
+	@GetMapping("/shopping/all")
+	public ResponseEntity<List<ProductData>> getAllProducts() {
+		return new ResponseEntity<>(productService.getAllProducts(), HttpStatus.OK);
 	}
-	
-	@GetMapping("/api/v/1.0/shopping/products/search/productname")
-	public void getProductByName() {
-		
+
+	@GetMapping("/shopping/products/search/{productname}")
+	public ResponseEntity<ProductData> getProductByName(@PathVariable String productname) throws Exception {
+		return new ResponseEntity<>(productService.getProductsByName(productname), HttpStatus.OK);
 	}
-	
-	@PostMapping("/api/v1.0/ shopping /<productname>/add")
-	public void addProduct() {
-		
+
+	@PostMapping("/shopping/productname/add")
+	public ResponseEntity<ProductData> addProduct(@RequestBody ProductData productData) {
+		return new ResponseEntity<>(productService.addProduct(productData), HttpStatus.OK);
 	}
-	
-	@PutMapping("/api/v1.0/shopping /<productname>/update/<id>")
-	public void updateproductbyId() {
-		
+
+	@PutMapping("/shopping/update/{productname}")
+	public ResponseEntity<ProductData> updateproductStatus(@RequestBody ProductData productData,
+			@PathVariable String productname) throws Exception {
+		return new ResponseEntity<>(productService.updateProductStatus(productname, productData.getProductStatus()),
+				HttpStatus.OK);
 	}
-	
-	
-	@DeleteMapping("/api/v1.0/ shopping /<productname>/delete/<id>")
-	public void deleteProduct() {
-		
+
+	@DeleteMapping("/shopping/delete/{productname}")
+	public ResponseEntity<String> deleteProduct(@PathVariable String productname) {
+		return new ResponseEntity<>(productService.deleteProduct(productname), HttpStatus.OK);
+	}
+
+	@GetMapping("/all")
+	public ResponseEntity<ProductData> getAllProductstest() {
+		ProductData productData = new ProductData();
+		productData.setProductName("LED TV");
+		productData.setPrice("540000");
+		productData.setFeatures("Smart and WIFI");
+		productData.setProductDescription("58 inch smart TV");
+		productData.setProductStatus("available");
+		return new ResponseEntity<>(productData, HttpStatus.OK);
 	}
 }

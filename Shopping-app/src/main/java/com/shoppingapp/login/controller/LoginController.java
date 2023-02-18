@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.shoppingapp.login.controller.service.CustomerService;
 import com.shoppingapp.login.model.CustomerData;
+import com.shoppingapp.login.service.CustomerService;
 
 @RestController
 @RequestMapping("/customer")

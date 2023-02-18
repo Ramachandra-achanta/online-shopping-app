@@ -1,4 +1,4 @@
-package com.shoppingapp.login.controller.service;
+package com.shoppingapp.login.service;
 
 import com.shoppingapp.login.model.CustomerData;
 

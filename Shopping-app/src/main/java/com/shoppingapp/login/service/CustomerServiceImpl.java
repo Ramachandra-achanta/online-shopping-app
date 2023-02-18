@@ -1,4 +1,4 @@
-package com.shoppingapp.login.controller.service;
+package com.shoppingapp.login.service;
 
 import java.util.Optional;
 
