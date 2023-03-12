@@ -51,14 +51,4 @@ public class ProductController {
 		return new ResponseEntity<>(productService.deleteProduct(productname), HttpStatus.OK);
 	}
 
-	@GetMapping("/all")
-	public ResponseEntity<ProductData> getAllProductstest() {
-		ProductData productData = new ProductData();
-		productData.setProductName("LED TV");
-		productData.setPrice("540000");
-		productData.setFeatures("Smart and WIFI");
-		productData.setProductDescription("58 inch smart TV");
-		productData.setProductStatus("available");
-		return new ResponseEntity<>(productData, HttpStatus.OK);
-	}
 }

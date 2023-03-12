@@ -11,6 +11,10 @@ public interface ProductRepository extends MongoRepository<ProductData, String> 
 	@Query("{'productName': ?0}")
     Optional<ProductData> findByName(String productName);
 	
-	@Query("{'productName': ?0}")
+	@Query(value = "{'productName': ?0}", delete = true)
     Optional<ProductData> deleteByName(String productName);
+	
+	@Query(value = "{'productName': ?0}", count = true)
+    long countProducts(String productName);
+	
 }

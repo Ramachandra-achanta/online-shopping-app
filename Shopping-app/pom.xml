@@ -8,9 +8,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.shoppingapp</groupId>
-	<artifactId>Login-service</artifactId>
+	<artifactId>Shopping-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Login-service</name>
+	<name>Shopping-service</name>
 	<description>Online shopping app</description>
 	<properties>
 		<java.version>17</java.version>
@@ -34,15 +34,6 @@
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.14</version>
 		</dependency>
-
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -68,6 +59,15 @@
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>
 			<version>1.6.14</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

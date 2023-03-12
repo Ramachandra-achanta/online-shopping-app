@@ -1,14 +1,25 @@
 package com.shoppingapp.login.model;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("productinfo")
 public class ProductData {
+	@Id
+	private int productId;
 	private String productName;
 	private String productDescription;
 	private String price;
 	private String features;
 	private String productStatus;
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 
 	public String getProductName() {
 		return productName;

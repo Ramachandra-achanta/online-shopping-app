@@ -11,9 +11,5 @@ public interface ProductService {
 	public ProductData addProduct(ProductData productData);
 	public ProductData updateProductStatus(String name,String status) throws Exception;
 	public String deleteProduct(String name);
-	
-	
-	
-	
 
 }
